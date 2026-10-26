@@ -1,0 +1,32 @@
+name: Deploy to EdgeOne Makers
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install EdgeOne CLI
+        run: npm i -g edgeone@latest
+
+      - name: Deploy to EdgeOne Makers
+        # Makers Agent 项目：CLI 会自动构建 agents/ 再上传，无需单独 build 步骤
+        # 跳过网关凭证自动绑定：该账号的 CLI 自动注入链路会报 InvalidParameter，
+        # 模型 Key 已在项目环境变量中手工配置（AI_GATEWAY_* / WSA_API_KEY）
+        run: |
+          edgeone makers deploy \
+            -n laochen-agent \
+            -t ${{ secrets.EDGEONE_API_TOKEN }} \
+            --skip-ai-gateway-sync \
+            --json
