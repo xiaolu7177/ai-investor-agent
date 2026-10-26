@@ -1,0 +1,17 @@
+{
+  "name": "ai-investor-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI 投资人 · 副业想法验证 Agent（LangGraph + EdgeOne Makers）",
+  "scripts": {
+    "dev": "edgeone makers dev",
+    "deploy": "edgeone makers deploy"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.2.9",
+    "@langchain/langgraph": "^1.4.14",
+    "@langchain/openai": "1.5.8",
+    "zod": "^4.3.6"
+  }
+}
