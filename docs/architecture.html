@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  svg { display: block; }
+  text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+</style>
+</head>
+<body>
+<svg width="1680" height="1020" viewBox="0 0 1680 1020" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.10"/>
+    </filter>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a5568"/>
+    </marker>
+    <marker id="ard" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c05621"/>
+    </marker>
+  </defs>
+
+  <rect width="1680" height="1020" fill="#ffffff"/>
+  <rect x="0" y="0" width="1680" height="8" fill="#2b6cb0"/>
+
+  <!-- 标题 -->
+  <text x="60" y="66" font-size="30" font-weight="700" fill="#1a202c">老陈 · AI 投资人 Agent — 系统架构</text>
+  <text x="60" y="98" font-size="16" fill="#718096">LangGraph · EdgeOne Makers · AI Gateway · 腾讯云元宝搜索</text>
+
+  <!-- ===== 第一层：域名与接入 ===== -->
+  <text x="60" y="142" font-size="14" font-weight="700" fill="#a0aec0">① 域名与接入</text>
+
+  <g filter="url(#sh)">
+    <rect x="60" y="158" width="300" height="96" rx="10" fill="#ebf4ff" stroke="#90cdf4" stroke-width="1.5"/>
+    <text x="210" y="190" font-size="17" font-weight="700" fill="#2c5282" text-anchor="middle">DNSPod 解析</text>
+    <text x="210" y="216" font-size="14" fill="#4a5568" text-anchor="middle">xzhangx.top</text>
+    <text x="210" y="238" font-size="13" fill="#718096" text-anchor="middle">CNAME + TXT 归属验证</text>
+  </g>
+
+  <line x1="366" y1="206" x2="424" y2="206" stroke="#4a5568" stroke-width="1.8" marker-end="url(#ar)"/>
+
+  <g filter="url(#sh)">
+    <rect x="430" y="158" width="380" height="96" rx="10" fill="#ebf4ff" stroke="#90cdf4" stroke-width="1.5"/>
+    <text x="620" y="190" font-size="17" font-weight="700" fill="#2c5282" text-anchor="middle">www.xzhangx.top</text>
+    <text x="620" y="216" font-size="14" fill="#4a5568" text-anchor="middle">HTTPS · TrustAsia DV 证书</text>
+    <text x="620" y="238" font-size="13" fill="#718096" text-anchor="middle">有效期至 2027-01-23</text>
+  </g>
+
+  <line x1="816" y1="206" x2="874" y2="206" stroke="#4a5568" stroke-width="1.8" marker-end="url(#ar)"/>
+
+  <g filter="url(#sh)">
+    <rect x="880" y="158" width="420" height="96" rx="10" fill="#ebf4ff" stroke="#90cdf4" stroke-width="1.5"/>
+    <text x="1090" y="190" font-size="17" font-weight="700" fill="#2c5282" text-anchor="middle">EdgeOne 海外边缘节点</text>
+    <text x="1090" y="216" font-size="14" fill="#4a5568" text-anchor="middle">加速区域：海外（不含中国大陆，免备案）</text>
+    <text x="1090" y="238" font-size="13" fill="#718096" text-anchor="middle">自动签发并续期 SSL</text>
+  </g>
+
+  <!-- 域名层 → 运行时 -->
+  <path d="M 1090 254 L 1090 300 L 620 300 L 620 336" fill="none" stroke="#4a5568" stroke-width="1.8" marker-end="url(#ar)"/>
+  <text x="880" y="292" font-size="13" fill="#718096" text-anchor="middle">路由到项目</text>
+
+  <!-- ===== 第二层：主请求链路 ===== -->
+  <text x="60" y="332" font-size="14" font-weight="700" fill="#a0aec0">② 请求链路（一次对话）</text>
+
+  <!-- 用户端 -->
+  <g filter="url(#sh)">
+    <rect x="60" y="350" width="250" height="180" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+    <text x="185" y="386" font-size="17" font-weight="700" fill="#1a202c" text-anchor="middle">用户端</text>
+    <text x="185" y="416" font-size="14" fill="#4a5568" text-anchor="middle">浏览器 / 手机</text>
+    <text x="185" y="442" font-size="13" fill="#718096" text-anchor="middle">原生 HTML + CSS + JS</text>
+    <text x="185" y="466" font-size="13" fill="#718096" text-anchor="middle">SSE 流式渲染</text>
+    <text x="185" y="490" font-size="13" fill="#718096" text-anchor="middle">Markdown / 打字机效果</text>
+  </g>
+
+  <line x1="316" y1="440" x2="374" y2="440" stroke="#4a5568" stroke-width="1.8" marker-end="url(#ar)"/>
+  <text x="345" y="424" font-size="12" fill="#718096" text-anchor="middle">HTTPS</text>
+  <text x="345" y="466" font-size="12" fill="#718096" text-anchor="middle">SSE</text>
+
+  <!-- EdgeOne Makers 运行时 -->
+  <g filter="url(#sh)">
+    <rect x="380" y="350" width="380" height="180" rx="10" fill="#f0fff4" stroke="#9ae6b4" stroke-width="1.8"/>
+    <text x="570" y="386" font-size="17" font-weight="700" fill="#22543d" text-anchor="middle">EdgeOne Makers 运行时</text>
+    <rect x="404" y="404" width="332" height="34" rx="6" fill="#ffffff" stroke="#c6f6d5"/>
+    <text x="570" y="426" font-size="13.5" fill="#276749" text-anchor="middle">静态资源托管：index.html / style.css / script.js</text>
+    <rect x="404" y="446" width="160" height="34" rx="6" fill="#ffffff" stroke="#c6f6d5"/>
+    <text x="484" y="468" font-size="13.5" fill="#276749" text-anchor="middle">POST /chat</text>
+    <rect x="576" y="446" width="160" height="34" rx="6" fill="#ffffff" stroke="#c6f6d5"/>
+    <text x="656" y="468" font-size="13.5" fill="#276749" text-anchor="middle">POST /stop</text>
+    <text x="570" y="510" font-size="12.5" fill="#718096" text-anchor="middle">Serverless 边缘函数 · 按需扩缩</text>
+  </g>
+
+  <line x1="766" y1="440" x2="824" y2="440" stroke="#4a5568" stroke-width="1.8" marker-end="url(#ar)"/>
+  <text x="795" y="424" font-size="12" fill="#718096" text-anchor="middle">调用</text>
+
+  <!-- LangGraph -->
+  <g filter="url(#sh)">
+    <rect x="830" y="350" width="300" height="180" rx="10" fill="#fffaf0" stroke="#f6ad55" stroke-width="1.8"/>
+    <text x="980" y="386" font-size="17" font-weight="700" fill="#7b341e" text-anchor="middle">LangGraph 状态图</text>
+    <rect x="854" y="404" width="252" height="34" rx="6" fill="#ffffff" stroke="#fbd38d"/>
+    <text x="980" y="426" font-size="13.5" fill="#7b341e" text-anchor="middle">agent 节点（LLM + 提示词）</text>
+    <rect x="854" y="446" width="252" height="34" rx="6" fill="#ffffff" stroke="#fbd38d"/>
+    <text x="980" y="468" font-size="13.5" fill="#7b341e" text-anchor="middle">tool 节点（执行工具）</text>
+    <text x="980" y="510" font-size="12.5" fill="#718096" text-anchor="middle">checkpointer：多轮记忆</text>
+  </g>
+
+  <line x1="1136" y1="440" x2="1180" y2="440" stroke="#4a5568" stroke-width="1.8" marker-end="url(#ar)"/>
+  <text x="1158" y="424" font-size="11.5" fill="#718096" text-anchor="middle">OpenAI</text>
+  <text x="1158" y="466" font-size="11.5" fill="#718096" text-anchor="middle">兼容</text>
+
+  <!-- AI Gateway -->
+  <g filter="url(#sh)">
+    <rect x="1186" y="350" width="196" height="180" rx="10" fill="#faf5ff" stroke="#d6bcfa" stroke-width="1.8"/>
+    <text x="1284" y="386" font-size="16" font-weight="700" fill="#44337a" text-anchor="middle">AI Gateway</text>
+    <text x="1284" y="414" font-size="13" fill="#553c9a" text-anchor="middle">统一鉴权</text>
+    <text x="1284" y="438" font-size="13" fill="#553c9a" text-anchor="middle">模型路由</text>
+    <text x="1284" y="462" font-size="13" fill="#553c9a" text-anchor="middle">用量计量</text>
+    <text x="1284" y="492" font-size="12" fill="#718096" text-anchor="middle">Makers API Key</text>
+  </g>
+
+  <line x1="1388" y1="440" x2="1436" y2="440" stroke="#4a5568" stroke-width="1.8" marker-end="url(#ar)"/>
+
+  <!-- DeepSeek -->
+  <g filter="url(#sh)">
+    <rect x="1442" y="350" width="180" height="180" rx="10" fill="#f0fff4" stroke="#9ae6b4" stroke-width="1.8"/>
+    <text x="1532" y="386" font-size="16" font-weight="700" fill="#22543d" text-anchor="middle">DeepSeek</text>
+    <text x="1532" y="414" font-size="13" fill="#276749" text-anchor="middle">deepseek-chat</text>
+    <text x="1532" y="440" font-size="12.5" fill="#718096" text-anchor="middle">BYOK 自费模型</text>
+    <text x="1532" y="464" font-size="12.5" fill="#718096" text-anchor="middle">Key 由平台托管</text>
+    <text x="1532" y="492" font-size="12" fill="#718096" text-anchor="middle">Function Calling</text>
+  </g>
+
+  <!-- LangGraph → 工具（向下） -->
+  <path d="M 920 536 L 920 604" fill="none" stroke="#4a5568" stroke-width="1.8" marker-end="url(#ar)"/>
+  <text x="932" y="574" font-size="12" fill="#718096">function call</text>
+
+  <!-- 工具 → LangGraph（回流） -->
+  <path d="M 1040 604 L 1040 536" fill="none" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+  <text x="1052" y="574" font-size="12" fill="#718096">检索结果</text>
+
+  <!-- 元宝搜索 -->
+  <g filter="url(#sh)">
+    <rect x="830" y="608" width="300" height="104" rx="10" fill="#f0fff4" stroke="#9ae6b4" stroke-width="1.8"/>
+    <text x="980" y="642" font-size="16" font-weight="700" fill="#22543d" text-anchor="middle">腾讯云元宝搜索（WSA）</text>
+    <text x="980" y="668" font-size="13" fill="#276749" text-anchor="middle">SearchPro 接口 · 联网检索</text>
+    <text x="980" y="692" font-size="12.5" fill="#718096" text-anchor="middle">竞品、定价、行业数据</text>
+  </g>
+
+  <!-- ===== 第三层：CI/CD ===== -->
+  <text x="60" y="792" font-size="14" font-weight="700" fill="#a0aec0">③ 持续交付（CI/CD）</text>
+
+  <g filter="url(#sh)">
+    <rect x="60" y="808" width="280" height="100" rx="10" fill="#fffaf0" stroke="#f6ad55" stroke-width="1.5"/>
+    <text x="200" y="842" font-size="16" font-weight="700" fill="#7b341e" text-anchor="middle">GitHub 仓库</text>
+    <text x="200" y="868" font-size="13" fill="#718096" text-anchor="middle">xiaolu7177/ai-investor-agent</text>
+    <text x="200" y="890" font-size="12.5" fill="#718096" text-anchor="middle">push 到 main 分支</text>
+  </g>
+
+  <line x1="346" y1="858" x2="404" y2="858" stroke="#c05621" stroke-width="1.8" marker-end="url(#ard)"/>
+
+  <g filter="url(#sh)">
+    <rect x="410" y="808" width="290" height="100" rx="10" fill="#fffaf0" stroke="#f6ad55" stroke-width="1.5"/>
+    <text x="555" y="842" font-size="16" font-weight="700" fill="#7b341e" text-anchor="middle">GitHub Actions</text>
+    <text x="555" y="868" font-size="13" fill="#718096" text-anchor="middle">Node 22 · npm i -g edgeone</text>
+    <text x="555" y="890" font-size="12.5" fill="#718096" text-anchor="middle">run #1 Success（1m50s）</text>
+  </g>
+
+  <line x1="706" y1="858" x2="764" y2="858" stroke="#c05621" stroke-width="1.8" marker-end="url(#ard)"/>
+
+  <g filter="url(#sh)">
+    <rect x="770" y="808" width="360" height="100" rx="10" fill="#fffaf0" stroke="#f6ad55" stroke-width="1.5"/>
+    <text x="950" y="842" font-size="16" font-weight="700" fill="#7b341e" text-anchor="middle">edgeone makers deploy</text>
+    <text x="950" y="868" font-size="13" fill="#718096" text-anchor="middle">--skip-ai-gateway-sync --json</text>
+    <text x="950" y="890" font-size="12.5" fill="#718096" text-anchor="middle">使用 Secret：EDGEONE_API_TOKEN</text>
+  </g>
+
+  <!-- CI/CD → 运行时（虚线 elbow） -->
+  <path d="M 950 808 L 950 776 L 640 776 L 640 536" fill="none" stroke="#c05621" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ard)"/>
+  <text x="800" y="768" font-size="12" fill="#c05621" text-anchor="middle">自动部署</text>
+
+  <!-- 图例 -->
+  <g>
+    <rect x="1180" y="808" width="442" height="100" rx="10" fill="#f7fafc" stroke="#e2e8f0"/>
+    <text x="1200" y="836" font-size="13" font-weight="700" fill="#4a5568">图例</text>
+    <rect x="1200" y="848" width="14" height="14" rx="3" fill="#ebf4ff" stroke="#90cdf4"/>
+    <text x="1222" y="860" font-size="12.5" fill="#4a5568">域名与接入层</text>
+    <rect x="1320" y="848" width="14" height="14" rx="3" fill="#f0fff4" stroke="#9ae6b4"/>
+    <text x="1342" y="860" font-size="12.5" fill="#4a5568">运行时 / 外部服务</text>
+    <rect x="1476" y="848" width="14" height="14" rx="3" fill="#fffaf0" stroke="#f6ad55"/>
+    <text x="1498" y="860" font-size="12.5" fill="#4a5568">Agent / 交付</text>
+    <line x1="1200" y1="884" x2="1240" y2="884" stroke="#4a5568" stroke-width="1.8" marker-end="url(#ar)"/>
+    <text x="1250" y="888" font-size="12.5" fill="#4a5568">请求 / 数据流向</text>
+    <line x1="1360" y1="884" x2="1400" y2="884" stroke="#c05621" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ard)"/>
+    <text x="1410" y="888" font-size="12.5" fill="#4a5568">部署流水线</text>
+  </g>
+
+  <!-- 页脚 -->
+  <text x="60" y="962" font-size="12.5" fill="#a0aec0">一次对话：浏览器 —SSE→ 边缘函数 → LangGraph（agent ↔ tool）→ AI Gateway → DeepSeek；tool 节点调用元宝搜索取真实竞品数据。</text>
+  <text x="60" y="986" font-size="12.5" fill="#a0aec0">代码托管于 GitHub，push 后由 Actions 自动部署到 EdgeOne Makers；域名经 DNSPod 解析至边缘节点，全程 HTTPS。</text>
+</svg>
+</body>
+</html>
