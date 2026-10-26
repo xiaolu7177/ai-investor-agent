@@ -1,0 +1,10 @@
+node_modules/
+.edgeone/
+.env
+.env.local
+.DS_Store
+*.log
+dist/
+
+# 截图工具与临时产物
+.tools/
